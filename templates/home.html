@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jovian Careers</title>
+    <style>
+        body{
+            height: 100vh;
+            display: grid;
+            place-content: center;
+        }
+        span{
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    {% if user_ip %}
+        <h1>Jovian Careers</h1>
+        <h2>your IP is {{ user_ip }}.</h2>
+        <img src="http://127.0.0.1:5000/static/flask.jpg" height="320">
+        <span>About Jovian Careers</span>
+    {% else %}
+        <a href="{{ url_for('index') }}">Hacer clic aquí para regresar a la página principal.</a>
+    {% endif %}
+    <ul>
+        {% for todo in todos %}
+        <li>{{todo}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
